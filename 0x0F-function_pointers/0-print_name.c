@@ -1,18 +1,16 @@
-#include "main.h"
-#include <stdlib.h>
+#include "function_pointers.h"
 
 /**
- * malloc_checked - allocates memory using malloc
- * @b: memory to allocate
- *
- * Return: pointer to allocated memory or normal process termination if error
- */
-void *malloc_checked(unsigned int b)
-{
-	void *p;
+* print_name - prints a name
+* @name:name to print
+* @f: function which print name
+*/
 
-	p = malloc(b);
-	if (p == NULL)
-		exit(98);
-	return (p);
+void print_name(char *name, void (*f)(char *))
+{
+
+	if (name == NULL || f == NULL)
+		return;
+
+	f(name);
 }
