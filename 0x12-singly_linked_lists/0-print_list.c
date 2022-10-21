@@ -1,17 +1,22 @@
-#include "main.h"
+#include "lists.h"
+#include <stdio.h>
 
 /**
-*_isupper - checks if a  character is uppercase or not
-*@c: character to be tested
-*Return: 1 whether it is, 0 otherwise
-*/
-
-int _isupper(int c)
+ * print_list - prints all the elements of a list_t list
+ * @h: pointer to the start of the list
+ *
+ * Return: number of nodes in the list
+ */
+size_t print_list(const list_t *h)
 {
-	if ((c >= 'A') && (c <= 'Z'))
-	{
-		return (1);
-	}
+	const list_t *tmp;
+	unsigned int i;
 
-	return (0);
+	tmp = h;
+	for (i = 0; tmp; i++)
+	{
+		printf("[%u] %s\n", tmp->len, tmp->str);
+		tmp = tmp->next;
+	}
+	return (i);
 }
